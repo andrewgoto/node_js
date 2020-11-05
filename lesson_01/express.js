@@ -37,6 +37,12 @@ app.post('/sign-in', (req, res, next) => {
 	return res.send('Request was sanded succesfuly');
 });
 
+// Перехват ошибок и передача на дефолтный обработчик фреймворка express
+app.use((err, req, res, next) => {
+	delete err.stack; // удаялем детальное описание ошибки
+	next(err);
+});
+
 app.listen(3000, () => {
 	console.log('Express listening on port 3000');
 });
