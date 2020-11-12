@@ -1,6 +1,13 @@
 let express = require('express');
 const Joi = require('joi');
 
+// Add data from .evn
+const dotenv = require('dotenv');
+dotenv.config();
+//
+
+console.log('process env', process.env);
+
 let app = express();
 const PORT = 3000;
 
